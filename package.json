@@ -1,0 +1,59 @@
+{
+  "name": "basemaps",
+  "version": "0.0.1",
+  "description": "A set of basemap urls and attributions useful for GeoJS, CesiumJS, and more",
+  "main": "index.ts",
+  "files": ["lib/**/*"],
+  "scripts": {
+    "build": "tsc",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "format": "prettier --write \"src/**/*.ts\" \"src/**/*.js\"",
+    "lint": "tslint -p tsconfig.json"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ResonantGeoData/basemaps.git"
+  },
+  "keywords": [
+    "basemaps",
+    "geospatial"
+  ],
+  "author": "Kitware, Inc.",
+  "license": "Apache V2",
+  "bugs": {
+    "url": "https://github.com/ResonantGeoData/basemaps/issues"
+  },
+  "homepage": "https://github.com/ResonantGeoData/basemaps#readme",
+  "eslintConfig": {
+    "root": true,
+    "env": {
+      "node": true
+    },
+    "extends": [
+      "plugin:vue/recommended",
+      "@vue/airbnb",
+      "@vue/typescript/recommended"
+    ],
+    "parserOptions": {
+      "ecmaVersion": 2020
+    },
+    "rules": {},
+    "overrides": [
+      {
+        "files": [
+          "**/__tests__/*.{j,t}s?(x)",
+          "**/tests/unit/**/*.spec.{j,t}s?(x)"
+        ],
+        "env": {
+          "jest": true
+        }
+      }
+    ]
+  },
+  "devDependencies": {
+    "prettier": "^2.5.1",
+    "tslint": "^6.1.3",
+    "tslint-config-prettier": "^1.18.0",
+    "typescript": "^4.5.5"
+  }
+}
