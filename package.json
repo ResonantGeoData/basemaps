@@ -1,15 +1,10 @@
 {
-  "name": "basemaps",
+  "name": "@ResonantGeoData/basemaps",
   "version": "0.0.1",
   "description": "A set of basemap urls and attributions useful for GeoJS, CesiumJS, and more",
-  "main": "index.ts",
-  "files": ["lib/**/*"],
-  "scripts": {
-    "build": "tsc",
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "format": "prettier --write \"src/**/*.ts\" \"src/**/*.js\"",
-    "lint": "tslint -p tsconfig.json"
-  },
+  "author": "Kitware, Inc.",
+  "license": "Apache-2.0",
+  "homepage": "https://github.com/ResonantGeoData/basemaps#readme",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/ResonantGeoData/basemaps.git"
@@ -18,12 +13,37 @@
     "basemaps",
     "geospatial"
   ],
-  "author": "Kitware, Inc.",
-  "license": "Apache V2",
   "bugs": {
     "url": "https://github.com/ResonantGeoData/basemaps/issues"
   },
-  "homepage": "https://github.com/ResonantGeoData/basemaps#readme",
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com"
+  },
+  "devDependencies": {
+    "@tsconfig/recommended": "^1.0.1",
+    "npm-run-all": "^4.1.5",
+    "parcel": "^2.2.1",
+    "prettier": "^2.5.1",
+    "rimraf": "^3.0.2",
+    "tslint": "^6.1.3",
+    "tslint-config-prettier": "^1.18.0",
+    "typescript": "^4.5.5"
+  },
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "files": [
+    "src/",
+    "dist/"
+  ],
+  "scripts": {
+    "build:clean": "rimraf ./dist",
+    "build:compile": "tsc",
+    "build": "npm-run-all build:clean build:compile",
+    "prepack": "npm-run-all build",
+    "watch": "tsc --watch",
+    "format": "prettier --write \"src/**/*.ts\" \"src/**/*.js\"",
+    "lint": "tslint -p tsconfig.json"
+  },
   "eslintConfig": {
     "root": true,
     "env": {
@@ -49,11 +69,5 @@
         }
       }
     ]
-  },
-  "devDependencies": {
-    "prettier": "^2.5.1",
-    "tslint": "^6.1.3",
-    "tslint-config-prettier": "^1.18.0",
-    "typescript": "^4.5.5"
   }
 }
